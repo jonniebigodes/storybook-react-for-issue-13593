@@ -1,0 +1,54 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import Boop from "./Boop";
+
+<Meta title="Boop/TestWithMDX" component={Boop} />
+
+# Without component
+
+This is an example without Component
+
+export const getCaptionForLocale = (locale) => {
+  switch (locale) {
+    case "es":
+      return "Hola!";
+    case "fr":
+      return "Bonjour!";
+    case "kr":
+      return "안녕하세요!";
+    case "zh":
+      return "你好!";
+    default:
+      return "Hello!";
+  }
+};
+
+## No Canvas
+
+<Story name="NoCanvas">
+  {(args, { globals: { locale } }) => {
+    const caption = getCaptionForLocale(locale);
+    return <>{caption}</>;
+  }}
+</Story>
+
+## With Canvas
+
+<Canvas>
+  <Story name="WithCanvas">
+    {(args, { globals: { locale } }) => {
+      const caption = getCaptionForLocale(locale);
+      return <>{caption}</>;
+    }}
+  </Story>
+</Canvas>
+
+## With the whole set of items
+
+<Canvas>
+  <Story name="With component and locale">
+    {(args, { globals: { locale } }) => {
+      const caption = getCaptionForLocale(locale);
+      return <Boop locale={caption} />;
+    }}
+  </Story>
+</Canvas>

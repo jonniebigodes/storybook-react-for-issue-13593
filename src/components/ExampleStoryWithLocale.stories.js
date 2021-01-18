@@ -2,7 +2,7 @@ import React from "react";
 import Boop from "./Boop";
 export default {
   component: Boop,
-  title: "Task",
+  title: "Boop",
 };
 const getCaptionForLocale = (locale) => {
   switch (locale) {
